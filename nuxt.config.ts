@@ -5,5 +5,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-vitest'
   ],
+  runtimeConfig: {
+    apiKey: '',
+    apiBaseUrl: '',
+    apiToken: '',
+    public: {
+      imgBaseUrl: '',
+    }
+  },
   devtools: { enabled: true }
 })
