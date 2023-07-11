@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-vitest'
   ],
+  css: [
+    '@/assets/styles/main.css'
+  ],
   runtimeConfig: {
     apiKey: '',
     apiBaseUrl: '',
