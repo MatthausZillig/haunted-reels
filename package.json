@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^18.16.19",
+    "@unocss/nuxt": "^0.53.5",
+    "happy-dom": "^10.1.1",
+    "nuxt": "^3.6.2",
+    "nuxt-vitest": "^0.9.0",
+    "vitest": "^0.33.0"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.2.1"
+  }
+}
