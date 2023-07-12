@@ -8,6 +8,13 @@ export default defineNuxtConfig({
   css: [
     '@/assets/styles/main.css'
   ],
+  unocss: {
+    uno: true,
+    icons: true,
+    attributify: true,
+    shortcuts: {},
+    rules: [],
+  },
   runtimeConfig: {
     apiKey: '',
     apiBaseUrl: '',
