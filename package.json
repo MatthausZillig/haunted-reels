@@ -6,15 +6,26 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.16.19",
+    "@typescript-eslint/parser": "^6.2.1",
     "@unocss/nuxt": "^0.53.5",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "happy-dom": "^10.1.1",
     "nuxt": "^3.6.2",
     "nuxt-vitest": "^0.9.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.6",
     "vitest": "^0.33.0"
   },
   "dependencies": {
