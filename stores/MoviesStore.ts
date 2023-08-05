@@ -10,7 +10,7 @@ export const useMoviesStore = defineStore('moviesStore', {
     async getMovies(): Promise<void> {
       this.isLoading = true
       const res = await fetch('/api/movies/discover')
-      const data = await res.json()
+      const data: APIResponse = await res.json()
       this.movies = data as unknown as APIResponse[]
       this.isLoading = false
     }
