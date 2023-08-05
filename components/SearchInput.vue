@@ -3,7 +3,7 @@
     <input
       type="text"
       placeholder="Search..."
-      class="w-full h-full rounded-full px-[48px] py-[4px] bg-purple-200 text-gray-800 border-0 shadow-none text-base"
+      class="w-full h-full rounded-full px-[48px] py-[4px] bg-zinc-950 border border-purple-300 text-gray-800 shadow-none text-base"
     />
   </form>
 </template>
