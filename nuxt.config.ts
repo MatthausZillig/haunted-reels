@@ -1,21 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@unocss/nuxt", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-vitest"],
-  css: ["@/assets/styles/main.css"],
+  modules: ['@unocss/nuxt', '@vueuse/nuxt', '@pinia/nuxt', 'nuxt-vitest'],
+  css: ['@/assets/styles/main.css'],
   unocss: {
     uno: true,
     icons: true,
     attributify: true,
     shortcuts: {},
-    rules: [],
+    rules: []
   },
   runtimeConfig: {
-    apiKey: "",
-    apiBaseUrl: "",
-    apiToken: "",
+    apiKey: '',
+    apiBaseUrl: '',
+    apiToken: '',
     public: {
-      imgBaseUrl: "",
-    },
+      imgBaseUrl: ''
+    }
   },
-  devtools: { enabled: true },
-});
+  devtools: { enabled: true }
+})
