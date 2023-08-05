@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
     'nuxt-vitest'
   ],
   css: [
