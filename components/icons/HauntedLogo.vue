@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="fill-purple-400 hover:fill-purple-300"
+    class="fill-zinc-700 hover:fill-zinc-600"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     width="208"
