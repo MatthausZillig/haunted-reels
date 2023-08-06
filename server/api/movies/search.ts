@@ -1,13 +1,16 @@
-export default defineEventHandler((event) => {
-  const { query, page } = getQuery(event)
-  const config = useRuntimeConfig()
-  return $fetch(
-    `${config.apiBaseUrl}/search/movie?query=${query}&page=${page}&query=horror&api_key=${config.apiKey}`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${config.apiToken}`
+export default defineEventHandler(
+  (event) => {
+    const { query, page } =
+      getQuery(event)
+    const config = useRuntimeConfig()
+    return $fetch(
+      `${config.apiBaseUrl}/search/movie?query=${query}&page=${page}&api_key=${config.apiKey}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${config.apiToken}`
+        }
       }
-    }
-  )
-})
+    )
+  }
+)
