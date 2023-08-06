@@ -15,7 +15,6 @@
 <script setup lang="ts">
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
-const filter = ref('popularity.desc')
 const page = ref(1)
 const handleWithSearch = (
   term: string
@@ -24,8 +23,7 @@ const handleWithSearch = (
   moviesStore.updateIsSearching(!!term)
   moviesStore.getMovies(
     page.value,
-    term,
-    filter.value
+    term
   )
 }
 

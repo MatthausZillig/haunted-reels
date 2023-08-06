@@ -110,7 +110,7 @@ const moviesStore = useMoviesStore()
 const { movies, term, page } =
   storeToRefs(useMoviesStore())
 
-const filter = ref('popularity.desc')
+const filter = ref('')
 
 const moviesList = computed(() => {
   return movies?.value
