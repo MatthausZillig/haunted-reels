@@ -1,4 +1,3 @@
-// Importe as funções necessárias da biblioteca 'vitest'
 import { describe, expect, it } from 'vitest'
 import { formatDate } from '~/utils/index'
 
