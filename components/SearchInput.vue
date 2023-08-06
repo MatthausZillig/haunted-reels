@@ -1,5 +1,8 @@
 <template>
-  <form class="flex items-centerw-[200px] h-[40px]" @submit.prevent>
+  <form
+    class="flex items-centerw-[200px] h-[40px]"
+    @submit.prevent
+  >
     <input
       v-model="searchTerm"
       type="text"
@@ -12,18 +15,28 @@
 <script setup lang="ts">
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
+const filter = ref('popularity.desc')
 const page = ref(1)
-const handleWithSearch = (term: string) => {
+const handleWithSearch = (
+  term: string
+) => {
   moviesStore.updateTerm(term)
   moviesStore.updateIsSearching(!!term)
-  moviesStore.getMovies(page.value, term)
+  moviesStore.getMovies(
+    page.value,
+    term,
+    filter.value
+  )
 }
 
 const searchTerm = ref('')
-const debouncedSearchTerm = refDebounced(searchTerm, 700)
+const debouncedSearchTerm =
+  refDebounced(searchTerm, 700)
 
 watch(debouncedSearchTerm, () => {
   moviesStore.updatePage(1)
-  handleWithSearch(debouncedSearchTerm.value)
+  handleWithSearch(
+    debouncedSearchTerm.value
+  )
 })
 </script>
