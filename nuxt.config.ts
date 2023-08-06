@@ -17,5 +17,10 @@ export default defineNuxtConfig({
       imgBaseUrl: ''
     }
   },
+  app: {
+    head: {
+      title: 'Haunted reels'
+    }
+  },
   devtools: { enabled: true }
 })
