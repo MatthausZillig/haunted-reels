@@ -18,7 +18,7 @@
         <movie-card :movie="movie" />
       </div>
     </div>
-    <div v-if="moviesList.length" class="flex justify-center">
+    <div v-if="moviesList && moviesList.length" class="flex justify-center">
       <button
         v-if="!disabledPrevious"
         class="px-4 py-2 text-sm border-none rounded-lg w-[80px] hover:shadow-md cursor-pointer bg-none"
@@ -43,8 +43,7 @@ import { storeToRefs } from 'pinia'
 import { Movie } from 'types/Movie'
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
-const { movies } = storeToRefs(useMoviesStore())
-const page = ref(1)
+const { movies, term, page } = storeToRefs(useMoviesStore())
 const moviesList = computed(() => {
   return movies?.value?.results as Movie[]
 })
@@ -57,6 +56,6 @@ const disabledNext = computed(() => {
 moviesStore.getMovies(page.value)
 
 watch(page, () => {
-  moviesStore.getMovies(page.value)
+  moviesStore.getMovies(page?.value, term?.value)
 })
 </script>
