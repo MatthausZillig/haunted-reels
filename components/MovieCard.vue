@@ -2,7 +2,7 @@
   <div class="max-w-fit border flex flex-col text-center">
     <NuxtLink
       :to="`movies/${movie.id}`"
-      class="flex justify-center h-[300px] w-[200px] rounded-md shadow-xl hover:shadow-2xl opacity-[.87]"
+      class="flex justify-center h-[300px] w-[200px] rounded-md shadow-xl hover:shadow-2xl"
     >
       <img class="inline-block rounded-md" :src="imgURL" alt="Movie Poster" />
     </NuxtLink>
@@ -10,7 +10,10 @@
       <p class="text-ellipsis overflow-hidden max-w-[120px] font-semibold">
         {{ movie.title }}
       </p>
-      <p class="text-ellipsis overflow-hidden text-zinc-600 font-ligh">
+      <p
+        v-if="movie.vote_average > 0"
+        class="text-ellipsis overflow-hidden text-zinc-600 font-ligh"
+      >
         {{ movie.vote_average }}
       </p>
     </div>
@@ -38,6 +41,6 @@ const config = useRuntimeConfig()
 const imgURL = computed(() =>
   props.movie.poster_path != null
     ? `${config.public.imgBaseUrl}/${props.movie.poster_path}`
-    : 'https://via.placeholder.com/300x500'
+    : 'https://via.placeholder.com/200x300'
 )
 </script>

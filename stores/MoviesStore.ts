@@ -10,12 +10,16 @@ export const useMoviesStore = defineStore('moviesStore', {
     page: 1
   }),
   actions: {
-    async getMovies(page: number, debouncedSearchTerm?: string): Promise<void> {
+    async getMovies(
+      page: number,
+      debouncedSearchTerm?: string,
+      filterTerm?: string
+    ): Promise<void> {
       this.isLoading = true
       const uri =
         this.isSearching && debouncedSearchTerm
           ? `api/movies/search?query=${debouncedSearchTerm}&page=${page}`
-          : `/api/movies/discover?page=${page}`
+          : `/api/movies/discover?page=${page}&filter=${filterTerm}`
       const res = await fetch(uri)
       const data: APIResponse = await res.json()
       this.movies = data as unknown as APIResponse
