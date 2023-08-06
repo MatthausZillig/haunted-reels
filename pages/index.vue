@@ -15,7 +15,7 @@
           {{
             filter
               ? filter
-              : 'Sort result by'
+              : 'Sort results by'
           }}
           <Icon
             icon="radix-icons:chevron-down"
@@ -104,6 +104,7 @@ import {
 } from 'radix-vue'
 import { Icon } from '@iconify/vue'
 import { storeToRefs } from 'pinia'
+import { options } from '~/constants/Enums'
 import { Movie } from 'types/Movie'
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
@@ -127,33 +128,6 @@ const disabledNext = computed(() => {
     movies.value?.total_pages
   )
 })
-
-const options = [
-  {
-    name: 'Popularity Descending',
-    value: 'popularity.desc'
-  },
-  {
-    name: 'Popularity Ascending',
-    value: 'popularity.asc'
-  },
-  {
-    name: 'Rating Descending',
-    value: 'vote_average.desc'
-  },
-  {
-    name: 'Rating Ascending',
-    value: 'vote_average.asc'
-  },
-  {
-    name: 'Release Date Descending',
-    value: 'primary_release_date.desc'
-  },
-  {
-    name: 'Release Date Ascending',
-    value: 'primary_release_date.asc'
-  }
-]
 
 const getFilterValue = (
   filterName: string
