@@ -3,49 +3,7 @@
     class="flex flex-col justify-center items-center"
   >
     <hero-banner />
-    <div
-      v-if="!term"
-      class="flex justify-start mb-10 z-[999] xs:w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] xxl:w-[1600px]"
-    >
-      <select-root
-        v-model="filter"
-        class="cursor-pointer"
-      >
-        <select-trigger
-          aria-label="Filter opitions"
-          class="z-[1000] w-[200px] inline-flex items-center justify-between rounded px-2 text-xs text-zinc-600 font-semibold leading-none h-[35px] gap-[5px] bg-transparent hover:bg-mauve3outline-none border-1 border-zinc-500 cursor-pointer"
-        >
-          {{
-            filter
-              ? filter
-              : 'Sort results by'
-          }}
-          <Icon
-            icon="radix-icons:chevron-down"
-            class="h-3.5 w-3.5"
-          />
-        </select-trigger>
-        <select-portal class="z-[999]">
-          <select-content
-            :side-offset="5"
-            class="z-[999] w-[200px] bg-white rounded px-2 py-4 data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
-          >
-            <select-group>
-              <select-item
-                v-for="(
-                  option, index
-                ) in options"
-                :key="index"
-                class="cursor-pointer py-2 text-xs"
-                :value="option.name"
-              >
-                {{ option.name }}
-              </select-item>
-            </select-group>
-          </select-content>
-        </select-portal>
-      </select-root>
-    </div>
+    <filter-select />
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xxl:grid-cols-7 self-center gap-x-10 gap-y-12 mb-10 max-w-[1600px]"
     >
@@ -86,22 +44,15 @@
 </template>
 
 <script setup lang="ts">
-import {
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectPortal,
-  SelectRoot,
-  SelectTrigger
-} from 'radix-vue'
-import { Icon } from '@iconify/vue'
 import { storeToRefs } from 'pinia'
 import { options } from '~/constants/Enums'
 import { Movie } from 'types/Movie'
+import { getFilterValue } from '~/utils'
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
-const { movies, term, page } =
-  storeToRefs(useMoviesStore())
+const { movies, page } = storeToRefs(
+  useMoviesStore()
+)
 
 const filter = ref('')
 
@@ -121,33 +72,21 @@ const disabledNext = computed(() => {
   )
 })
 
-const getFilterValue = (
-  filterName: string
-) => {
-  return options.find(
-    (item) => item.name === filterName
-  )
-}
-
 moviesStore.getMovies(
   page.value,
   '',
   filter.value
 )
 
-watch(page, () => {
-  moviesStore.getMovies(
-    page?.value,
-    term?.value,
-    getFilterValue(filter.value)?.value
-  )
-})
 watch(filter, () => {
   moviesStore.updatePage(1)
   moviesStore.getMovies(
     page?.value,
     '',
-    getFilterValue(filter.value)?.value
+    getFilterValue(
+      filter.value,
+      options
+    )?.value
   )
 })
 </script>

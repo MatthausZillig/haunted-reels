@@ -1,4 +1,6 @@
-export function formatDate(inputDate: string): string {
+export function formatDate(
+  inputDate: string
+): string {
   const months = [
     'Jan',
     'Feb',
@@ -14,19 +16,35 @@ export function formatDate(inputDate: string): string {
     'Dec'
   ]
 
-  const [year, month, day] = inputDate.split('-')
-  const monthIndex = parseInt(month, 10) - 1
+  const [year, month, day] =
+    inputDate.split('-')
+  const monthIndex =
+    parseInt(month, 10) - 1
   const formattedDate = `${months[monthIndex]} ${day}, ${year}`
 
   return formattedDate
 }
 
-export function getColorFromValue(value: number) {
+export function getColorFromValue(
+  value: number
+) {
   if (value >= 7 && value <= 10) {
     return 'text-green-8'
-  } else if (value >= 5.5 && value <= 6.9) {
+  } else if (
+    value >= 5.5 &&
+    value <= 6.9
+  ) {
     return 'text-yellow-700'
   } else if (value < 5.5) {
     return 'text-red-700'
   }
+}
+
+export const getFilterValue = (
+  filterName: string,
+  options: any[]
+) => {
+  return options.find(
+    (item) => item.name === filterName
+  )
 }
