@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div
+    class="flex flex-col justify-center items-center"
+  >
+    <hero-banner />
     <div
       v-if="!term"
-      class="px-12 mb-8 z-[999]"
+      class="flex justify-start mb-10 z-[999] w-[1600px]"
     >
       <select-root
         v-model="filter"
@@ -44,18 +47,7 @@
       </select-root>
     </div>
     <div
-      px-12
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-      md:grid-cols-3
-      lg:grid-cols-4
-      xl:grid-cols-6
-      xxl:grid-cols-10
-      self-center
-      gap-x-12
-      gap-y-12
-      mb-10
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xxl:grid-cols-7 self-center gap-x-10 gap-y-12 mb-10 max-w-[1600px]"
     >
       <div
         v-for="movie in moviesList"

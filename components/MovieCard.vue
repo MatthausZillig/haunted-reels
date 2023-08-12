@@ -1,13 +1,23 @@
 <template>
-  <div class="max-w-fit border flex flex-col text-center">
+  <div
+    class="max-w-fit border flex flex-col text-center"
+  >
     <NuxtLink
       :to="`movies/${movie.id}`"
       class="flex justify-center h-[300px] w-[200px] rounded-md shadow-xl hover:shadow-2xl"
     >
-      <img class="inline-block rounded-md" :src="imgURL" alt="Movie Poster" />
+      <img
+        class="inline-block rounded-md"
+        :src="imgURL"
+        alt="Movie Poster"
+      />
     </NuxtLink>
-    <div class="flex justify-between text-xs mt-2 uppercase whitespace-nowrap">
-      <p class="text-ellipsis overflow-hidden max-w-[120px] font-semibold">
+    <div
+      class="flex justify-between text-xs mt-2 uppercase whitespace-nowrap"
+    >
+      <p
+        class="text-ellipsis overflow-hidden max-w-[120px] font-semibold"
+      >
         {{ movie.title }}
       </p>
       <p
@@ -17,9 +27,15 @@
         {{ movie.vote_average }}
       </p>
     </div>
-    <div class="flex justify-initial text-xs font-light mt-1 whitespace-nowrap">
-      <p class="text-ellipsis overflow-hidden">
-        {{ formatDate(movie.release_date) }}
+    <div
+      class="flex justify-initial text-xs font-light mt-1 whitespace-nowrap"
+    >
+      <p
+        class="text-ellipsis overflow-hidden"
+      >
+        {{
+          formatDate(movie.release_date)
+        }}
       </p>
     </div>
   </div>

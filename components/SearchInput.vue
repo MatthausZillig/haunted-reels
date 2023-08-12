@@ -6,8 +6,8 @@
     <input
       v-model="searchTerm"
       type="text"
-      placeholder="Search..."
-      class="w-full h-full rounded-full px-[48px] py-[4px] bg-zinc-200 border text-gray-800 shadow-none border-none shadow-md text-base"
+      placeholder="Search for a movie..."
+      class="w-full min-w-[300px] max-w-[300px] h-full rounded px-[16px] py-[4px] bg-zinc-100 border text-gray-800 shadow-none border-none shadow-md text-base"
     />
   </form>
 </template>
