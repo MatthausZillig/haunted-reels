@@ -90,13 +90,3 @@ watch(filter, () => {
   )
 })
 </script>
-
-<style scoped>
-button[data-state='open'] > svg {
-  transition: all 150ms ease-in;
-  transform: rotate(180deg);
-}
-button[data-state='closed'] > svg {
-  transition: all 150ms ease-in;
-}
-</style>
