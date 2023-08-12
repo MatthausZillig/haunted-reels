@@ -146,12 +146,14 @@ moviesStore.getMovies(
 watch(page, () => {
   moviesStore.getMovies(
     page?.value,
-    term?.value
+    term?.value,
+    getFilterValue(filter.value)?.value
   )
 })
 watch(filter, () => {
+  moviesStore.updatePage(1)
   moviesStore.getMovies(
-    page.value,
+    page?.value,
     '',
     getFilterValue(filter.value)?.value
   )
