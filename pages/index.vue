@@ -5,7 +5,7 @@
     <hero-banner />
     <div
       v-if="!term"
-      class="flex justify-start mb-10 z-[999] w-[1600px]"
+      class="flex justify-start mb-10 z-[999] xs:w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] xxl:w-[1600px]"
     >
       <select-root
         v-model="filter"
