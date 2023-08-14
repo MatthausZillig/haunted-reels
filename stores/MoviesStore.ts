@@ -8,7 +8,8 @@ export const useMoviesStore =
       isLoading: false,
       isSearching: false,
       term: '',
-      page: 1
+      page: 1,
+      filterValue: ''
     }),
     actions: {
       async getMovies(
@@ -42,6 +43,9 @@ export const useMoviesStore =
       },
       updatePage(page: number) {
         this.page = page
+      },
+      updateFilterValue(value: string) {
+        this.filterValue = value
       }
     }
   })

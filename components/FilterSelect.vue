@@ -67,6 +67,7 @@ const filter = ref()
 
 watch(filter, () => {
   moviesStore.updatePage(1)
+  moviesStore.updateFilterValue(filter.value)
   moviesStore.getMovies(
     page?.value,
     '',

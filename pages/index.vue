@@ -50,11 +50,10 @@ import { Movie } from 'types/Movie'
 import { getFilterValue } from '~/utils'
 import { useMoviesStore } from '~/stores/MoviesStore'
 const moviesStore = useMoviesStore()
-const { movies, page } = storeToRefs(
+const { movies, term, page, filterValue } = storeToRefs(
   useMoviesStore()
 )
 
-const filter = ref('')
 
 const moviesList = computed(() => {
   return movies?.value
@@ -75,18 +74,14 @@ const disabledNext = computed(() => {
 moviesStore.getMovies(
   page.value,
   '',
-  filter.value
+  getFilterValue(filterValue.value, options)?.value
 )
 
-watch(filter, () => {
-  moviesStore.updatePage(1)
+watch(page, () => {
   moviesStore.getMovies(
     page?.value,
-    '',
-    getFilterValue(
-      filter.value,
-      options
-    )?.value
+    term?.value,
+    getFilterValue(filterValue.value, options)?.value
   )
 })
 </script>
